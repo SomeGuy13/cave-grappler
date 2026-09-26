@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ckytwvud5t6tp"]
+
+[ext_resource type="Texture2D" uid="uid://d1hl23g03vres" path="res://assets/tiles/tile_spikes.png" id="1_ljd5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ksya"]
+size = Vector2(7, 4)
+
+[node name="Spike" type="Node2D" unique_id=329994196]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1193942232]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=398687608]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_7ksya")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=515527428]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+texture = ExtResource("1_ljd5v")
