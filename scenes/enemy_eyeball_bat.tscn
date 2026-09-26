@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cp7ww4t8joqq4"]
+
+[ext_resource type="Script" uid="uid://nviv31o0e6hi" path="res://scripts/enemy_eyeball_bat.gd" id="1_ge6l8"]
+[ext_resource type="Texture2D" uid="uid://bpsytidaiyomg" path="res://assets/sprites/sprite_enemy_bat.png" id="2_b63o4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqj8t"]
+radius = 5.0039983
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddq8j"]
+atlas = ExtResource("2_b63o4")
+region = Rect2(66, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebxnp"]
+atlas = ExtResource("2_b63o4")
+region = Rect2(2, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfm6v"]
+atlas = ExtResource("2_b63o4")
+region = Rect2(34, 0, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48d6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddq8j")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebxnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfm6v")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ksya"]
+radius = 44.400448
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48d6w"]
+radius = 5.2
+
+[node name="EnemyEyeballBat" type="CharacterBody2D" unique_id=4129719]
+scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ge6l8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=748013040]
+position = Vector2(1.490116e-08, 0)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_dqj8t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1099476051]
+position = Vector2(0, -2.9999998)
+sprite_frames = SubResource("SpriteFrames_48d6w")
+animation = &"idle"
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=305710968]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1851193516]
+shape = SubResource("CircleShape2D_7ksya")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1976404612]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=683890345]
+shape = SubResource("CircleShape2D_48d6w")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detecion_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_exited"]

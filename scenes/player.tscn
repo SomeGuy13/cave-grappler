@@ -98,6 +98,7 @@ size = Vector2(7.2000017, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=1378999229]
 scale = Vector2(5, 5)
+collision_layer = 3
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1693457085]
@@ -116,11 +117,13 @@ width = 1.0
 texture = ExtResource("3_qhqgy")
 texture_mode = 2
 
-[node name="Detection Area" type="Area2D" parent="." unique_id=1011572477]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1011572477]
+collision_layer = 7
+collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area" unique_id=1639532177]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1639532177]
 position = Vector2(0.6000001, 0.99999976)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_48d6w")
 
-[connection signal="area_entered" from="Detection Area" to="." method="_on_detection_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_entered"]

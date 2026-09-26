@@ -99,5 +99,5 @@ func handle_animations():
 
 func _on_detection_area_entered(area: Area2D) -> void:
 	if area is Area2D:
-		if area.get_collision_layer_value(1): # Spikes Layer
+		if area.get_collision_layer_value(2): # Spikes Layer
 			get_tree().reload_current_scene()
