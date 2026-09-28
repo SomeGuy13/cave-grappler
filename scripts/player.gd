@@ -8,17 +8,21 @@ var acceleration = 10000
 var stopping_distance = 8
 
 var grappling = false
+var attacking = false
 
 @export var gravity_multiplyer = 2.5
 
 @onready var sprite = $AnimatedSprite2D
 @onready var space_state = get_world_2d().direct_space_state
 @onready var rope = $Rope
+@onready var attack_box = $AttackBox
+@onready var attack_shape = $AttackBox/CollisionShape2D
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	handle_jump()
 	handle_movement()
+	handle_attack()
 	handle_grapple(delta)
 	handle_animations()
 	
@@ -42,6 +46,17 @@ func handle_movement():
 		
 		if direction != 0:
 			sprite.scale.x = direction
+			attack_box.scale.x = direction
+
+func handle_attack():
+	if Input.is_action_pressed("Attack"):
+		attacking = true
+		attack_shape.disabled = false
+		sprite.stop()
+		sprite.play("attacking")
+		await sprite.animation_finished
+		attacking = false
+		attack_shape.disabled = true
 
 func handle_grapple(delta: float):
 	var grapple_position = Vector2.ZERO
@@ -89,15 +104,21 @@ func accelerate_towards_point(point: Vector2, delta: float):
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 
 func handle_animations():
-	if !is_on_floor():
+	if attacking:
+		sprite.play("attacking")
+	elif !is_on_floor():
 		sprite.play("jumping")
 	elif abs(velocity.x) > 0.1 and is_on_floor():
 		sprite.play("walking")
 	elif is_on_floor():
 		sprite.play("idle")
 
-
 func _on_detection_area_entered(area: Area2D) -> void:
 	if area is Area2D:
 		if area.get_collision_layer_value(2): # Spikes Layer
 			get_tree().reload_current_scene()
+
+func _on_attack_box_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		print("Hit enemy!")
+		area.get_parent().die()

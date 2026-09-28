@@ -29,12 +29,17 @@ func move_to_position(point: Vector2, delta: float):
 		
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 
+func die():
+	queue_free()
+
 func _on_detecion_area_entered(area: Area2D) -> void:
-	target = area.get_parent()
-	state = State.CHASING
-	velocity = Vector2.ZERO
+	if area.is_in_group("Player"):
+		target = area.get_parent()
+		state = State.CHASING
+		velocity = Vector2.ZERO
 
 func _on_detection_area_exited(area: Area2D) -> void:
-	target = null
-	state = State.IDLE
-	velocity = Vector2.ZERO
+	if area.is_in_group("Player"):
+		target = null
+		state = State.IDLE
+		velocity = Vector2.ZERO
