@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://de6aj1siuinch"]
+
+[ext_resource type="Script" uid="uid://bgcvjor2y6yiv" path="res://scripts/enemy_spawn_point.gd" id="1_pkfxy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ksya"]
+
+[node name="EnemySpawnPoint" type="Node2D" unique_id=1106278295]
+script = ExtResource("1_pkfxy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1564373657]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=739343781]
+shape = SubResource("CircleShape2D_7ksya")
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
