@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://xohamk8xo3bx"]
+
+[ext_resource type="Texture2D" uid="uid://cock1h3xjaeoq" path="res://assets/sprites/sprite_enemy_bat_eyeball.png" id="1_er534"]
+[ext_resource type="Script" uid="uid://ek8do4hct51g" path="res://scripts/dead_eyeball_bat.gd" id="1_ik1fb"]
+[ext_resource type="Texture2D" uid="uid://beep6p4oagcul" path="res://assets/sprites/sprite_enemy_bat_wing.png" id="2_ik1fb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ksya"]
+radius = 4.0
+
+[node name="DeadEyeballBat" type="Node2D" unique_id=111083453]
+light_mask = 128
+visibility_layer = 128
+script = ExtResource("1_ik1fb")
+
+[node name="Eyeball" type="RigidBody2D" parent="." unique_id=1236750973]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eyeball" unique_id=935716325]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_7ksya")
+
+[node name="Sprite2D" type="Sprite2D" parent="Eyeball" unique_id=1499685195]
+z_index = -5
+scale = Vector2(5, 5)
+texture = ExtResource("1_er534")
+
+[node name="LeftWing" type="RigidBody2D" parent="." unique_id=826455892]
+position = Vector2(47.5, -12.5)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWing" unique_id=122918796]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_7ksya")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWing" unique_id=339349698]
+z_index = -5
+scale = Vector2(5, 5)
+texture = ExtResource("2_ik1fb")
+
+[node name="RightWing" type="RigidBody2D" parent="." unique_id=1472012458]
+position = Vector2(-47.5, -12.5)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWing" unique_id=1567847512]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_7ksya")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWing" unique_id=1475253175]
+z_index = -5
+scale = Vector2(-5, 5)
+texture = ExtResource("2_ik1fb")

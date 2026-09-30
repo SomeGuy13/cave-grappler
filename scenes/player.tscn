@@ -96,8 +96,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48d6w"]
 size = Vector2(7.2000017, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7ksya"]
-radius = 10.007997
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ik1fb"]
+radius = 7.6000004
+height = 18.800003
 
 [node name="Player" type="CharacterBody2D" unique_id=1378999229 groups=["Player"]]
 scale = Vector2(5, 5)
@@ -112,6 +113,8 @@ shape = SubResource("RectangleShape2D_7ksya")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926094348]
 sprite_frames = SubResource("SpriteFrames_7ksya")
 animation = &"attacking"
+frame = 3
+frame_progress = 1.0
 
 [node name="Rope" type="Line2D" parent="." unique_id=1358358742]
 visible = false
@@ -133,8 +136,8 @@ shape = SubResource("RectangleShape2D_48d6w")
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=19001819 groups=["Player"]]
-position = Vector2(8.800001, -2.6000004)
-shape = SubResource("CircleShape2D_7ksya")
+position = Vector2(5.200001, 0)
+shape = SubResource("CapsuleShape2D_ik1fb")
 disabled = true
 
 [connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_detection_area_entered"]

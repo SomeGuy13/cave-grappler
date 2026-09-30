@@ -13,7 +13,7 @@ config_version=5
 config/name="Cave Grappler"
 run/main_scene="uid://bjjl8tabaf8fx"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cjhdkssbqh2sg"
 
 [display]
 

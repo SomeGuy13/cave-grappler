@@ -12,7 +12,6 @@ func spawn_enemy(scene: String):
 	enemy_instance.position = position
 	get_parent().add_child(enemy_instance)
 	occupied = true
-	print("Enemy Spawned at: ", enemy_instance.position)
 
 func _on_area_exited(area: Area2D) -> void:
 	occupied = false

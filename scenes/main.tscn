@@ -19,27 +19,8 @@ scale = Vector2(4.9999995, 4.9999995)
 tile_map_data = PackedByteArray("AAAAAA8AAAAIAAEAAAAAAA4AAAAEAAEAAAAAAA0AAAAAAAEAAAAAAAwAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAAoAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAABAAAAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAGAAAAAAACAAMAAAAHAAAAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAACAAMAAAAKAAAAAAAFAAAAAAALAAAAAAAKAAAAAAAMAAAAAAAKAAAAAAANAAAAAAAKAAAAAAAOAAAAAAAGAAAAAAAPAAAAAAACAAMAAAAQAAAAAAACAAMAAAARAAAAAAACAAMAAAASAAAAAAACAAMAAAATAAAAAAACAAMAAAAUAAAAAAACAAMAAAAVAAAAAAACAAMAAAAWAAAAAAAFAAAAAAAXAAAAAAAKAAAAAAAYAAAAAAAKAAAAAAAZAAAAAAAKAAAAAAAaAAAAAAAKAAAAAAAbAAAAAAAKAAAAAAAcAAAAAAALAAAAAAAcAAEAAAALAAIAAAAcAAIAAAALAAIAAAAcAAMAAAALAAIAAAAcAAQAAAALAAIAAAAcAAUAAAALAAIAAAAcAAYAAAALAAIAAAAcAAcAAAALAAIAAAAcAAgAAAAHAAIAAAAcAAkAAAAAAAEAAAAcAAoAAAAAAAEAAAAcAAsAAAAAAAEAAAAcAAwAAAAAAAEAAAAcAA0AAAAAAAEAAAAcAA4AAAAAAAEAAAAcAA8AAAAHAAEAAAAcABAAAAALAAMAAAAbABAAAAAJAAMAAAAaABAAAAAJAAMAAAAZABAAAAAJAAMAAAAYABAAAAAJAAMAAAAXABAAAAAJAAMAAAAWABAAAAAJAAMAAAAVABAAAAAJAAMAAAAUABAAAAAJAAMAAAATABAAAAAJAAMAAAASABAAAAAJAAMAAAARABAAAAAJAAMAAAAQABAAAAAJAAMAAAAPABAAAAAJAAMAAAAOABAAAAAJAAMAAAANABAAAAAJAAMAAAAMABAAAAAJAAMAAAALABAAAAAJAAMAAAAKABAAAAAJAAMAAAAJABAAAAAJAAMAAAAIABAAAAAJAAMAAAAHABAAAAAJAAMAAAAGABAAAAAJAAMAAAAFABAAAAAJAAMAAAAEABAAAAAJAAMAAAADABAAAAAJAAMAAAACABAAAAAJAAMAAAABABAAAAAJAAMAAAAAABAAAAAIAAMAAAABAA8AAAAJAAIAAAABAA4AAAAKAAAAAAACAA8AAAAJAAIAAAADAA8AAAAJAAIAAAAEAA8AAAAJAAIAAAACAA4AAAAKAAAAAAADAA4AAAAKAAAAAAAEAA4AAAAKAAAAAAAFAA4AAAALAAAAAAAFAA8AAAAGAAEAAAAGAA8AAAAKAAAAAAAHAA8AAAAKAAAAAAAIAA8AAAAKAAAAAAAJAA8AAAAKAAAAAAAKAA8AAAAKAAAAAAALAA8AAAAKAAAAAAAMAA8AAAAKAAAAAAANAA8AAAAKAAAAAAAOAA8AAAAKAAAAAAAPAA8AAAAKAAAAAAAQAA8AAAAKAAAAAAARAA8AAAAKAAAAAAASAA8AAAAKAAAAAAATAA8AAAAKAAAAAAAUAA8AAAAKAAAAAAAVAA8AAAAKAAAAAAAWAA8AAAAKAAAAAAAXAA8AAAAKAAAAAAAYAA8AAAAKAAAAAAAZAA8AAAAKAAAAAAAaAA8AAAAKAAAAAAAbAA8AAAAKAAAAAAAJAAwAAAABAAMAAAAKAAwAAAACAAMAAAALAAwAAAACAAMAAAAMAAwAAAADAAMAAAAQAAkAAAAIAAAAAAAQAAoAAAAIAAMAAAARAAoAAAAJAAMAAAASAAoAAAAJAAMAAAASAAkAAAAJAAIAAAARAAkAAAAFAAEAAAATAAkAAAAGAAEAAAATAAgAAAALAAAAAAASAAgAAAAKAAAAAAARAAgAAAAIAAAAAAATAAoAAAAKAAMAAAAFAAMAAAAIAAAAAAAFAAQAAAAIAAEAAAAFAAUAAAAIAAEAAAAFAAYAAAAIAAEAAAAFAAcAAAAIAAEAAAAFAAgAAAAIAAEAAAAFAAkAAAAIAAMAAAAGAAkAAAALAAMAAAAGAAgAAAALAAIAAAAGAAcAAAALAAIAAAAGAAYAAAALAAIAAAAGAAUAAAALAAIAAAAGAAQAAAALAAIAAAAGAAMAAAALAAAAAAAbAAEAAAAJAAIAAAAaAAEAAAAJAAIAAAAZAAEAAAAJAAIAAAAYAAEAAAAJAAIAAAAXAAEAAAAFAAIAAAAXAAIAAAAIAAMAAAAYAAIAAAAFAAIAAAAZAAIAAAAJAAIAAAAaAAIAAAAJAAIAAAAbAAIAAAAJAAIAAAAbAAMAAAAJAAIAAAAaAAMAAAAJAAIAAAAZAAMAAAAJAAIAAAAYAAMAAAAIAAEAAAAaAAQAAAAJAAIAAAAbAAQAAAAJAAIAAAAbAAUAAAAJAAIAAAAbAAYAAAAJAAIAAAAbAAcAAAAFAAIAAAAbAAgAAAAIAAMAAAAWAAEAAAAIAAMAAAAZAAQAAAAFAAIAAAAaAAUAAAAJAAIAAAAaAAYAAAAJAAIAAAAaAAcAAAAJAAMAAAAZAAcAAAAIAAMAAAAZAAYAAAAIAAEAAAAZAAUAAAAIAAEAAAAYAAQAAAAIAAMAAAAOAAEAAAALAAMAAAANAAEAAAAJAAMAAAAMAAEAAAAGAAIAAAALAAEAAAAJAAIAAAAKAAEAAAAIAAEAAAAKAAIAAAAIAAMAAAALAAIAAAAFAAIAAAAMAAIAAAALAAIAAAAMAAMAAAALAAMAAAALAAMAAAAEAAIAAAALAAQAAAAAAAEAAAALAAUAAAAAAAEAAAALAAYAAAAAAAIAAAAUAAkAAAALAAAAAAAUAAoAAAALAAMAAAATAAsAAAAAAAIAAAAHAA4AAQAAAAAAAQAIAA4AAQAAAAAAAQAJAA4AAQAAAAAAAQALAA4AAQAAAAAAAQAKAA4AAQAAAAAAAQAMAA4AAQAAAAAAAQANAA4AAQAAAAAAAQAOAA4AAQAAAAAAAQAGAA4AAQAAAAAAAQAVAAoAAQAAAAAAAVAVAAkAAQAAAAAAAVAXAAQAAQAAAAAAAWAXAAMAAQAAAAAAAWAKAAYAAQAAAAAAAWAKAAUAAQAAAAAAAWAKAAQAAQAAAAAAAWAQAAEAAQAAAAAAATARAAEAAQAAAAAAATASAAEAAQAAAAAAATA=")
 tile_set = ExtResource("1_tbgi4")
 
-[node name="Background" type="Node" parent="." unique_id=1531367130]
-
-[node name="BackgroundCave1" type="Sprite2D" parent="Background" unique_id=1075837574]
-z_index = -30
-position = Vector2(600, 330)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave2" type="Sprite2D" parent="Background" unique_id=1405994058]
-z_index = -30
-position = Vector2(600, 330)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave3" type="Sprite2D" parent="Background" unique_id=1434279301]
-z_index = -30
-position = Vector2(600, 330)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
 [node name="EnemySpawnManager" parent="." unique_id=2127556284 instance=ExtResource("6_tefeu")]
+enemies_to_spawn = 10
 enemy_scenes = ["res://scenes/enemy_eyeball_bat.tscn"]
 
 [node name="EnemySpawnPoint" parent="EnemySpawnManager" unique_id=1106278295 instance=ExtResource("7_o6xl0")]
@@ -59,3 +40,167 @@ position = Vector2(992, 490)
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnManager" unique_id=766070831 instance=ExtResource("7_o6xl0")]
 position = Vector2(956, 359)
+
+[node name="Background" type="Node" parent="." unique_id=1531367130]
+
+[node name="BackgroundCave1" type="Sprite2D" parent="Background" unique_id=1075837574]
+z_index = -30
+position = Vector2(600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave2" type="Sprite2D" parent="Background" unique_id=1405994058]
+z_index = -30
+position = Vector2(600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave3" type="Sprite2D" parent="Background" unique_id=1434279301]
+z_index = -30
+position = Vector2(600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave4" type="Sprite2D" parent="Background" unique_id=1481953345]
+z_index = -30
+position = Vector2(1800, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave5" type="Sprite2D" parent="Background" unique_id=620343746]
+z_index = -30
+position = Vector2(1800, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave6" type="Sprite2D" parent="Background" unique_id=1850957957]
+z_index = -30
+position = Vector2(1800, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave7" type="Sprite2D" parent="Background" unique_id=304125980]
+z_index = -30
+position = Vector2(-600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave8" type="Sprite2D" parent="Background" unique_id=1142631180]
+z_index = -30
+position = Vector2(-600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave9" type="Sprite2D" parent="Background" unique_id=1981697269]
+z_index = -30
+position = Vector2(-600, 337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave10" type="Sprite2D" parent="Background" unique_id=366349547]
+z_index = -30
+position = Vector2(600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave11" type="Sprite2D" parent="Background" unique_id=987934419]
+z_index = -30
+position = Vector2(600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave12" type="Sprite2D" parent="Background" unique_id=1574925989]
+z_index = -30
+position = Vector2(600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave13" type="Sprite2D" parent="Background" unique_id=1693865746]
+z_index = -30
+position = Vector2(1800, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave14" type="Sprite2D" parent="Background" unique_id=1813870364]
+z_index = -30
+position = Vector2(1800, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave15" type="Sprite2D" parent="Background" unique_id=623576925]
+z_index = -30
+position = Vector2(1800, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave16" type="Sprite2D" parent="Background" unique_id=106849513]
+z_index = -30
+position = Vector2(-600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave17" type="Sprite2D" parent="Background" unique_id=897110752]
+z_index = -30
+position = Vector2(-600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave18" type="Sprite2D" parent="Background" unique_id=158189169]
+z_index = -30
+position = Vector2(-600, -337.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave19" type="Sprite2D" parent="Background" unique_id=806642374]
+z_index = -30
+position = Vector2(600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave20" type="Sprite2D" parent="Background" unique_id=1809350589]
+z_index = -30
+position = Vector2(600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave21" type="Sprite2D" parent="Background" unique_id=1074356012]
+z_index = -30
+position = Vector2(600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave22" type="Sprite2D" parent="Background" unique_id=398983681]
+z_index = -30
+position = Vector2(1800, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave23" type="Sprite2D" parent="Background" unique_id=1331136674]
+z_index = -30
+position = Vector2(1800, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave24" type="Sprite2D" parent="Background" unique_id=116463447]
+z_index = -30
+position = Vector2(1800, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+
+[node name="BackgroundCave25" type="Sprite2D" parent="Background" unique_id=1294190338]
+z_index = -30
+position = Vector2(-600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+
+[node name="BackgroundCave26" type="Sprite2D" parent="Background" unique_id=1511682267]
+z_index = -30
+position = Vector2(-600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+
+[node name="BackgroundCave27" type="Sprite2D" parent="Background" unique_id=909882466]
+z_index = -30
+position = Vector2(-600, 1012.5)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")

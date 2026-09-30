@@ -1,30 +1,46 @@
 extends CharacterBody2D
 
-const SPEED = 350.0
-const JUMP_VELOCITY = -900.0
-
-var max_speed = 800
-var acceleration = 10000
-var stopping_distance = 8
-
-var grappling = false
-var attacking = false
-
-@export var gravity_multiplyer = 2.5
-
 @onready var sprite = $AnimatedSprite2D
 @onready var space_state = get_world_2d().direct_space_state
 @onready var rope = $Rope
 @onready var attack_box = $AttackBox
 @onready var attack_shape = $AttackBox/CollisionShape2D
 
+var grappling = false
+var attacking = false
+var dead = false
+
+var grapple_position = Vector2.ZERO
+var ray_hit_position = null
+
+const SPEED = 350.0
+const JUMP_VELOCITY = -500.0
+
+@export var max_speed = 800
+@export var acceleration = 10000
+@export var stopping_distance = 8
+@export var gravity_multiplyer = 2.5
+@export var death_wait_time = 1
+
 func _physics_process(delta: float) -> void:
+	if !dead:
+		handle_jump()
+		handle_movement()
+		handle_attack()
+		handle_animations()
+		
+		if Input.is_action_pressed("Grapple") and !grappling:
+			grappling = true
+			ray_hit_position = cast_ray()
+		
+			print(ray_hit_position)
+		
+		if Input.is_action_just_released("Grapple"):
+			grappling = false
+		
+		handle_grapple(delta)
+	
 	apply_gravity(delta)
-	handle_jump()
-	handle_movement()
-	handle_attack()
-	handle_grapple(delta)
-	handle_animations()
 	
 	move_and_slide()
 
@@ -59,26 +75,12 @@ func handle_attack():
 		attack_shape.disabled = true
 
 func handle_grapple(delta: float):
-	var grapple_position = Vector2.ZERO
-	var ray_hit_position = cast_ray()
-
-	if Input.is_action_pressed("Grapple") and !grappling:
-		grappling = true
+	grapple_position = ray_hit_position
 	
-	if Input.is_action_just_released("Grapple"):
-		grappling = false
-
-	if ray_hit_position == null:
-		grappling = false
-
-	if grappling:
-		if ray_hit_position != null:
-			grapple_position = ray_hit_position
-		
+	if grappling and grapple_position != null:
 		accelerate_towards_point(grapple_position, delta)
 		rope.visible = true
 		rope.set_point_position(1, rope.to_local(grapple_position))
-		
 	else:
 		grappling = false
 		rope.visible = false
@@ -116,9 +118,16 @@ func handle_animations():
 func _on_detection_area_entered(area: Area2D) -> void:
 	if area is Area2D:
 		if area.get_collision_layer_value(2): # Spikes Layer
-			get_tree().reload_current_scene()
+			dead = true
+			rotation = -90
+			sprite.stop()
+			velocity = Vector2.ZERO
+			rope.visible = false
+			grappling = false
+			await get_tree().create_timer(death_wait_time).timeout
+			if get_tree() != null:
+				get_tree().reload_current_scene()
 
 func _on_attack_box_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		print("Hit enemy!")
 		area.get_parent().die()

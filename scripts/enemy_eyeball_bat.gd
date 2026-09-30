@@ -6,7 +6,9 @@ enum State {
 }
 
 @onready var sprite = $AnimatedSprite2D
-@onready var detection_area = $DetectionArea
+@onready var detection_area = $EnemyDetectionArea
+
+const DEAD_SCENE = preload("res://scenes/dead_eyeball_bat.tscn")
 
 var state = State.IDLE
 var target = null
@@ -30,6 +32,10 @@ func move_to_position(point: Vector2, delta: float):
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 
 func die():
+	var dead_eyeball_bat = DEAD_SCENE
+	var dead_eyeball_bat_instance = dead_eyeball_bat.instantiate()
+	dead_eyeball_bat_instance.position = position
+	get_parent().add_child(dead_eyeball_bat_instance)
 	queue_free()
 
 func _on_detecion_area_entered(area: Area2D) -> void:
