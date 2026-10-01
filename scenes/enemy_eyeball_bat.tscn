@@ -4,19 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://bpsytidaiyomg" path="res://assets/sprites/sprite_enemy_bat.png" id="2_b63o4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqj8t"]
-radius = 5.0039983
+radius = 3.0066595
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddq8j"]
 atlas = ExtResource("2_b63o4")
-region = Rect2(66, 0, 32, 36)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebxnp"]
 atlas = ExtResource("2_b63o4")
-region = Rect2(2, 0, 32, 36)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfm6v"]
 atlas = ExtResource("2_b63o4")
-region = Rect2(34, 0, 32, 36)
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01yy6"]
+atlas = ExtResource("2_b63o4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b63o4"]
+atlas = ExtResource("2_b63o4")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_48d6w"]
 animations = [{
@@ -29,11 +37,40 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.35,
 "texture": SubResource("AtlasTexture_ebxnp")
 }, {
-"duration": 1.0,
+"duration": 0.35,
 "texture": SubResource("AtlasTexture_wfm6v")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ebxnp")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_wfm6v")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ebxnp")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_wfm6v")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ebxnp")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_wfm6v")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01yy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b63o4")
 }],
 "loop": 1,
 "name": &"idle",
@@ -44,15 +81,19 @@ animations = [{
 radius = 44.400448
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48d6w"]
-radius = 5.2
+radius = 4.219004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyjua"]
+radius = 3.7999997
 
 [node name="EnemyEyeballBat" type="CharacterBody2D" unique_id=4129719 groups=["Enemy"]]
 scale = Vector2(5, 5)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 130
+collision_mask = 130
 script = ExtResource("1_ge6l8")
+knockback_friction = 1000
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=748013040]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=748013040 groups=["Enemy"]]
 position = Vector2(1.490116e-08, 0)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_dqj8t")
@@ -60,22 +101,33 @@ shape = SubResource("CircleShape2D_dqj8t")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1099476051]
 position = Vector2(0, -2.9999998)
 sprite_frames = SubResource("SpriteFrames_48d6w")
-animation = &"idle"
+animation = &"hurt"
+frame = 7
+frame_progress = 1.0
 
 [node name="EnemyDetectionArea" type="Area2D" parent="." unique_id=305710968]
-collision_layer = 4
-collision_mask = 4
+visible = false
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea" unique_id=1851193516]
 shape = SubResource("CircleShape2D_7ksya")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1976404612 groups=["Enemy"]]
-visible = false
-collision_layer = 7
-collision_mask = 7
+collision_layer = 6
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=683890345 groups=["Enemy"]]
 shape = SubResource("CircleShape2D_48d6w")
 
+[node name="AttackBox" type="Area2D" parent="." unique_id=66979163]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=2081552826]
+shape = SubResource("CircleShape2D_fyjua")
+debug_color = Color(0.98671645, 0, 0.32554054, 0.41960785)
+
 [connection signal="area_entered" from="EnemyDetectionArea" to="." method="_on_detecion_area_entered"]
 [connection signal="area_exited" from="EnemyDetectionArea" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="AttackBox" to="." method="_on_attack_box_area_entered"]

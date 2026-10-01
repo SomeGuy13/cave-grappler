@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var rope = $Rope
 @onready var attack_box = $AttackBox
 @onready var attack_shape = $AttackBox/CollisionShape2D
+@onready var detection_shape = $CollisionShape2D
 
 var grappling = false
 var attacking = false
@@ -18,9 +19,10 @@ const JUMP_VELOCITY = -500.0
 
 @export var max_speed = 800
 @export var acceleration = 10000
-@export var stopping_distance = 8
+@export var stopping_distance = 0
 @export var gravity_multiplyer = 2.5
 @export var death_wait_time = 1
+@export var knockback_strength = 150
 
 func _physics_process(delta: float) -> void:
 	if !dead:
@@ -115,19 +117,29 @@ func handle_animations():
 	elif is_on_floor():
 		sprite.play("idle")
 
+func die():
+	dead = true
+	rotation = -90
+	sprite.stop()
+	velocity = Vector2.ZERO
+	rope.visible = false
+	grappling = false
+	attack_shape.disabled = true
+	await get_tree().create_timer(death_wait_time).timeout
+	if get_tree() != null:
+		get_tree().reload_current_scene()
+
 func _on_detection_area_entered(area: Area2D) -> void:
 	if area is Area2D:
-		if area.get_collision_layer_value(2): # Spikes Layer
-			dead = true
-			rotation = -90
-			sprite.stop()
-			velocity = Vector2.ZERO
-			rope.visible = false
-			grappling = false
-			await get_tree().create_timer(death_wait_time).timeout
-			if get_tree() != null:
-				get_tree().reload_current_scene()
+		if area.get_collision_layer_value(5): # Spikes Layer
+			die()
 
 func _on_attack_box_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		area.get_parent().die()
+		var enemy = area.get_parent()
+		enemy.take_damage(50)
+		
+		if grappling:
+			enemy.apply_knockback(position, knockback_strength + velocity.length() / 100)
+		else:
+			enemy.apply_knockback(position, knockback_strength)

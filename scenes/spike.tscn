@@ -8,8 +8,8 @@ size = Vector2(7, 4)
 [node name="Spike" type="Node2D" unique_id=329994196]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1193942232]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=398687608]
 position = Vector2(-0.5, 2)
