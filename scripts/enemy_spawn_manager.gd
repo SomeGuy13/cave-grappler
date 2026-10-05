@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var enemies_to_spawn = 5
-@export var spawn_frequency_min = 2
-@export var spawn_frequency_max = 5
+@export var spawn_frequency_min = 2.0
+@export var spawn_frequency_max = 5.0
 @export var enemy_scenes = [""]
 
 var spawners = []

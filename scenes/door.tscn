@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://dur2j0lvgv72x"]
+
+[ext_resource type="Texture2D" uid="uid://dacjj05f1c40d" path="res://assets/sprites/sprite_door.png" id="1_hpvv5"]
+[ext_resource type="Script" uid="uid://c1nyewjtdxucy" path="res://scripts/door.gd" id="1_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ksya"]
+size = Vector2(6, 16)
+
+[sub_resource type="Animation" id="Animation_uvdjg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_83dcw"]
+resource_name = "close"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-22, -0.25, 0, 0.25, 0, -8, -0.16666667, -2.3333335, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_la1wf"]
+resource_name = "open"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-8, -0.25, 0, 0.25, 0, -22, -0.16666667, 2.3333335, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18pbm"]
+_data = {
+&"RESET": SubResource("Animation_uvdjg"),
+&"close": SubResource("Animation_83dcw"),
+&"open": SubResource("Animation_la1wf")
+}
+
+[node name="Door" type="Node2D" unique_id=2005669806]
+scale = Vector2(5, 5)
+script = ExtResource("1_uvdjg")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1338128064]
+position = Vector2(0, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1012118604]
+z_index = -10
+texture = ExtResource("1_hpvv5")
+
+[node name="Area2D" type="StaticBody2D" parent="Node2D" unique_id=349562320]
+collision_layer = 131
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=979456534]
+shape = SubResource("RectangleShape2D_7ksya")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=848496468]
+libraries/ = SubResource("AnimationLibrary_18pbm")

@@ -42,24 +42,6 @@ animations = [{
 }, {
 "duration": 0.35,
 "texture": SubResource("AtlasTexture_wfm6v")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_ebxnp")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_wfm6v")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_ebxnp")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_wfm6v")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_ebxnp")
-}, {
-"duration": 0.35,
-"texture": SubResource("AtlasTexture_wfm6v")
 }],
 "loop": 0,
 "name": &"hurt",
@@ -102,7 +84,7 @@ shape = SubResource("CircleShape2D_dqj8t")
 position = Vector2(0, -2.9999998)
 sprite_frames = SubResource("SpriteFrames_48d6w")
 animation = &"hurt"
-frame = 7
+frame = 1
 frame_progress = 1.0
 
 [node name="EnemyDetectionArea" type="Area2D" parent="." unique_id=305710968]
