@@ -12,6 +12,31 @@
 
 [node name="Node2D" type="Node2D" unique_id=1982333655]
 
+[node name="Background" type="Node2D" parent="." unique_id=1501747994]
+
+[node name="BackgroundLayer1" type="Parallax2D" parent="Background" unique_id=417634912]
+scroll_scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BackgroundLayer1" unique_id=220887731]
+scale = Vector2(5, 5)
+texture = ExtResource("2_tefeu")
+centered = false
+
+[node name="BackgroundLayer2" type="Parallax2D" parent="Background" unique_id=1734719077]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BackgroundLayer2" unique_id=639670178]
+scale = Vector2(5, 5)
+texture = ExtResource("3_o6xl0")
+centered = false
+
+[node name="BackgroundLayer3" type="Parallax2D" parent="Background" unique_id=1398730988]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BackgroundLayer3" unique_id=1442452777]
+scale = Vector2(5, 5)
+texture = ExtResource("4_tipki")
+centered = false
+
 [node name="Player" parent="." unique_id=1378999229 instance=ExtResource("5_85g3d")]
 position = Vector2(115, 513.99994)
 collision_layer = 2
@@ -46,173 +71,12 @@ position = Vector2(992, 490)
 [node name="EnemySpawnPoint5" parent="EnemySpawnManager" unique_id=766070831 instance=ExtResource("7_o6xl0")]
 position = Vector2(956, 359)
 
-[node name="Background" type="Node" parent="." unique_id=1531367130]
-
-[node name="BackgroundCave1" type="Sprite2D" parent="Background" unique_id=1075837574]
-z_index = -30
-position = Vector2(600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave2" type="Sprite2D" parent="Background" unique_id=1405994058]
-z_index = -30
-position = Vector2(600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave3" type="Sprite2D" parent="Background" unique_id=1434279301]
-z_index = -30
-position = Vector2(600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave4" type="Sprite2D" parent="Background" unique_id=1481953345]
-z_index = -30
-position = Vector2(1800, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave5" type="Sprite2D" parent="Background" unique_id=620343746]
-z_index = -30
-position = Vector2(1800, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave6" type="Sprite2D" parent="Background" unique_id=1850957957]
-z_index = -30
-position = Vector2(1800, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave7" type="Sprite2D" parent="Background" unique_id=304125980]
-z_index = -30
-position = Vector2(-600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave8" type="Sprite2D" parent="Background" unique_id=1142631180]
-z_index = -30
-position = Vector2(-600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave9" type="Sprite2D" parent="Background" unique_id=1981697269]
-z_index = -30
-position = Vector2(-600, 337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave10" type="Sprite2D" parent="Background" unique_id=366349547]
-z_index = -30
-position = Vector2(600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave11" type="Sprite2D" parent="Background" unique_id=987934419]
-z_index = -30
-position = Vector2(600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave12" type="Sprite2D" parent="Background" unique_id=1574925989]
-z_index = -30
-position = Vector2(600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave13" type="Sprite2D" parent="Background" unique_id=1693865746]
-z_index = -30
-position = Vector2(1800, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave14" type="Sprite2D" parent="Background" unique_id=1813870364]
-z_index = -30
-position = Vector2(1800, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave15" type="Sprite2D" parent="Background" unique_id=623576925]
-z_index = -30
-position = Vector2(1800, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave16" type="Sprite2D" parent="Background" unique_id=106849513]
-z_index = -30
-position = Vector2(-600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave17" type="Sprite2D" parent="Background" unique_id=897110752]
-z_index = -30
-position = Vector2(-600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave18" type="Sprite2D" parent="Background" unique_id=158189169]
-z_index = -30
-position = Vector2(-600, -337.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave19" type="Sprite2D" parent="Background" unique_id=806642374]
-z_index = -30
-position = Vector2(600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave20" type="Sprite2D" parent="Background" unique_id=1809350589]
-z_index = -30
-position = Vector2(600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave21" type="Sprite2D" parent="Background" unique_id=1074356012]
-z_index = -30
-position = Vector2(600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave22" type="Sprite2D" parent="Background" unique_id=398983681]
-z_index = -30
-position = Vector2(1800, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave23" type="Sprite2D" parent="Background" unique_id=1331136674]
-z_index = -30
-position = Vector2(1800, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave24" type="Sprite2D" parent="Background" unique_id=116463447]
-z_index = -30
-position = Vector2(1800, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
-[node name="BackgroundCave25" type="Sprite2D" parent="Background" unique_id=1294190338]
-z_index = -30
-position = Vector2(-600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("2_tefeu")
-
-[node name="BackgroundCave26" type="Sprite2D" parent="Background" unique_id=1511682267]
-z_index = -30
-position = Vector2(-600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("3_o6xl0")
-
-[node name="BackgroundCave27" type="Sprite2D" parent="Background" unique_id=909882466]
-z_index = -30
-position = Vector2(-600, 1012.5)
-scale = Vector2(5, 5)
-texture = ExtResource("4_tipki")
-
 [node name="Button" parent="." unique_id=1981628097 node_paths=PackedStringArray("door") instance=ExtResource("9_85g3d")]
 position = Vector2(620, 580)
 door = NodePath("../Door")
 
 [node name="Door" parent="." unique_id=2005669806 instance=ExtResource("8_tipki")]
 position = Vector2(779, 600)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1567650057]
+position = Vector2(578, 339)

@@ -90,7 +90,6 @@ func _on_detection_area_exited(area: Area2D) -> void:
 		velocity = Vector2.ZERO
 
 func _on_attack_box_area_entered(area: Area2D) -> void:
-	print(area)
 	if area.get_collision_layer() == 32 && state != State.HURT:
 		var player = area.get_parent()
 		player.die()
