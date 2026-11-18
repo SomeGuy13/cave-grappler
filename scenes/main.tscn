@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de6aj1siuinch" path="res://scenes/enemy_spawn_point.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dur2j0lvgv72x" path="res://scenes/door.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://nvebo3vsge4e" path="res://scenes/button.tscn" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://cx3belervht4n" path="res://scripts/pause_menu.gd" id="10_choun"]
 
 [node name="Node2D" type="Node2D" unique_id=1982333655]
 
@@ -80,3 +81,53 @@ position = Vector2(779, 600)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1567650057]
 position = Vector2(578, 339)
+
+[node name="PauseMenu" type="Control" parent="Camera2D" unique_id=2011055546]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_choun")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/PauseMenu" unique_id=2136402786]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -64.0
+offset_right = 120.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/PauseMenu/VBoxContainer" unique_id=1673455243]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 42
+text = "PAUSED"
+
+[node name="MenuButton" type="Button" parent="Camera2D/PauseMenu/VBoxContainer" unique_id=214348873]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Menu"
+
+[node name="ResumeButton" type="Button" parent="Camera2D/PauseMenu/VBoxContainer" unique_id=1006026667]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Resume"
+
+[connection signal="button_down" from="Camera2D/PauseMenu/VBoxContainer/MenuButton" to="Camera2D/PauseMenu" method="_on_menu_button_button_down"]
+[connection signal="button_down" from="Camera2D/PauseMenu/VBoxContainer/ResumeButton" to="Camera2D/PauseMenu" method="_on_resume_button_down"]

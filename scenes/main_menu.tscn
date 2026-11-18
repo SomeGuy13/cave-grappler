@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bso6ul0pi760n"]
+
+[ext_resource type="Script" uid="uid://broopfpv210sb" path="res://scripts/play_button.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=268965770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1018425801]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -29.0
+offset_right = 162.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1368312844]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "CAVE GRAPPLER"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1330711361]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Play"
+script = ExtResource("1_l6cm7")
+
+[connection signal="button_down" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_button_down"]
