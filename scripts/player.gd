@@ -35,8 +35,6 @@ func _physics_process(delta: float) -> void:
 			grappling = true
 			ray_hit_position = cast_ray()
 		
-			print(ray_hit_position)
-		
 		if Input.is_action_just_released("Grapple"):
 			grappling = false
 		
